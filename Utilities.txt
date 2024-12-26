@@ -1,0 +1,27 @@
+1. ARM GCC
+https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-win32.exe?rev=29bb46cfa0434fbda93abb33c1d480e6&hash=B2C5AAE07841929A0D0BF460896D6E52
+
+
+
+or
+
+
+
+https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-win32.zip?rev=8f4a92e2ec2040f89912f372a55d8cf3&hash=5569B4C322E49BB400BFB63567A4B33B
+
+2. Open OCD
+https://sysprogs.com/getfile/2285/openocd-20240916.7z
+
+3. MinGW
+https://sourceforge.net/projects/mingw-w64/files/latest/download
+
+4. STM32Cube IDE
+https://www.st.com/en/development-tools/stm32cubeide.html 
+
+or
+
+https://www.st.com/content/ccc/resource/technical/software/sw_development_suite/group1/09/8d/1f/78/29/d8/46/41/stm32cubeide-win/files/st-stm32cubeide_1.17.0_23558_20241125_2245_x86_64.exe.zip/jcr:content/translations/en.st-stm32cubeide_1.17.0_23558_20241125_2245_x86_64.exe.zip
+
+
+5. TeraTerm
+https://en.softonic.com/download-launch?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb3dubG9hZFR5cGUiOiJyaXNlSW5zdGFsbGVyIiwiZG93bmxvYWRVcmwiOiJodHRwczovL2QyOW4xdnR4MG1xajhrLmNsb3VkZnJvbnQubmV0LzRmUXdmSnFIV0N2eS5leGUiLCJhcHBJZCI6IjI1NzQ5YmRhLTcxMTItNDE1Ni1hZmU4LTVkZTgxYjVmOTdjYiIsInBsYXRmb3JtSWQiOiJ3aW5kb3dzIiwiaWF0IjoxNzM1MjA4NjUxLCJleHAiOjE3MzUyMTIyNTF9._1tiPLgQMjjpsvgsETHgDgwPGm0NlewIr7j8xUOGUgw
