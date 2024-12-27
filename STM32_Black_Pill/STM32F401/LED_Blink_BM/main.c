@@ -20,7 +20,6 @@ int main(void)
 
   while (1)
   {
-    /* USER CODE END WHILE */
 
 	  *(GPIOC_ODR) |= 0x1 << (Pin*ODR_Size);
 	  for(int i=0; i< 1000000;)
@@ -32,9 +31,7 @@ int main(void)
 	  {
 		  i++;
 	  }
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
 }
 
 void _exit(int status) {
