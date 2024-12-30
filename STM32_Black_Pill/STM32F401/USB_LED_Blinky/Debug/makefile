@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -64,8 +64,8 @@ all: main-build
 main-build: USB_LED_Blinky.elf secondary-outputs
 
 # Tool invocations
-USB_LED_Blinky.elf USB_LED_Blinky.map: $(OBJS) $(USER_OBJS) E:\Git_repo\My_Code_Dev\STM32F4\USB_LED_Blinky\STM32F401CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "USB_LED_Blinky.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Git_repo\My_Code_Dev\STM32F4\USB_LED_Blinky\STM32F401CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USB_LED_Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+USB_LED_Blinky.elf USB_LED_Blinky.map: $(OBJS) $(USER_OBJS) E:\EmGal_Repo\STM32_Code_Base\STM32_Black_Pill\STM32F401\USB_LED_Blinky\STM32F401CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "USB_LED_Blinky.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\EmGal_Repo\STM32_Code_Base\STM32_Black_Pill\STM32F401\USB_LED_Blinky\STM32F401CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USB_LED_Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

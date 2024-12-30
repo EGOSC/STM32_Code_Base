@@ -20,6 +20,8 @@
 #include "main.h"
 #include "usb_device.h"
 
+#define GPIOC_ODR 	(unsigned int *)0x40020814
+#define LED_PIN		13
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -99,16 +101,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-	if (CDC_Transmit_FS(myBuffer, sizeof(myBuffer) - 1) == USBD_OK)
+    /*Method 1 Code */
+	  *(GPIOC_ODR) &= ~(0x1 << (LED_PIN));
+	  *(GPIOC_ODR) |= 0x1 << (LED_PIN);
+
+	/*Method 2 Code*/
 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_RESET);
-
-	HAL_Delay(1000);
-
-	if (CDC_Transmit_FS(myBuffer, sizeof(myBuffer) - 1) == USBD_OK)
 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
-
-	HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
