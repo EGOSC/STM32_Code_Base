@@ -9,27 +9,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .rodata       0000004c  080005d0  080005d0  000105d0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  0800061c  0800061c  0001061c  2**0
+  3 .ARM.exidx    00000008  0800061c  0800061c  0001061c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .ARM          00000008  0800061c  0800061c  0001061c  2**2
-                  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08000624  08000624  0002043c  2**0
+  4 .data         0000043c  20000000  08000624  00020000  2**3
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000008  08000624  08000624  00010624  2**2
+  5 .init_array   00000004  2000043c  08000a60  0002043c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  0800062c  0800062c  0001062c  2**2
+  6 .fini_array   00000004  20000440  08000a64  00020440  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         0000043c  20000000  08000630  00020000  2**3
+  7 .init_array.00000 00000004  20000444  08000a68  00020444  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000044  2000043c  08000a6c  0002043c  2**2
+  8 .bss          00000044  20000448  08000a6c  00020448  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000480  08000a6c  00020480  2**0
+  9 ._user_heap_stack 00000604  2000048c  08000a6c  0002048c  2**0
                   ALLOC
- 11 .ARM.attributes 0000002a  00000000  00000000  0002043c  2**0
+ 10 .ARM.attributes 0000002a  00000000  00000000  00020448  2**0
                   CONTENTS, READONLY
- 12 .comment      00000049  00000000  00000000  00020466  2**0
+ 11 .comment      00000049  00000000  00000000  00020472  2**0
                   CONTENTS, READONLY
- 13 .debug_frame  00000214  00000000  00000000  000204b0  2**2
+ 12 .debug_frame  00000214  00000000  00000000  000204bc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -46,7 +44,7 @@ Disassembly of section .text:
  80000d2:	2301      	movs	r3, #1
  80000d4:	7023      	strb	r3, [r4, #0]
  80000d6:	bd10      	pop	{r4, pc}
- 80000d8:	2000043c 	.word	0x2000043c
+ 80000d8:	20000448 	.word	0x20000448
  80000dc:	00000000 	.word	0x00000000
  80000e0:	080005b4 	.word	0x080005b4
 
@@ -59,7 +57,7 @@ Disassembly of section .text:
  80000ee:	f3af 8000 	nop.w
  80000f2:	bd08      	pop	{r3, pc}
  80000f4:	00000000 	.word	0x00000000
- 80000f8:	20000440 	.word	0x20000440
+ 80000f8:	2000044c 	.word	0x2000044c
  80000fc:	080005b4 	.word	0x080005b4
 
 08000100 <_stack_init>:
@@ -106,8 +104,8 @@ Disassembly of section .text:
  800015a:	bf00      	nop
  800015c:	00080000 	.word	0x00080000
 	...
- 800016c:	2000043c 	.word	0x2000043c
- 8000170:	20000480 	.word	0x20000480
+ 800016c:	20000448 	.word	0x20000448
+ 8000170:	2000048c 	.word	0x2000048c
  8000174:	080004c9 	.word	0x080004c9
  8000178:	080004d5 	.word	0x080004d5
 
@@ -169,11 +167,11 @@ Disassembly of section .text:
  80001e6:	f000 f80d 	bl	8000204 <main>
  80001ea:	e7fe      	b.n	80001ea <Reset_Handler+0x50>
  80001ec:	20018000 	.word	0x20018000
- 80001f0:	08000630 	.word	0x08000630
+ 80001f0:	08000624 	.word	0x08000624
  80001f4:	20000000 	.word	0x20000000
  80001f8:	2000043c 	.word	0x2000043c
- 80001fc:	2000043c 	.word	0x2000043c
- 8000200:	20000480 	.word	0x20000480
+ 80001fc:	20000448 	.word	0x20000448
+ 8000200:	2000048c 	.word	0x2000048c
 
 08000204 <main>:
  8000204:	b480      	push	{r7}
@@ -265,7 +263,7 @@ Disassembly of section .text:
  80002ba:	4293      	cmp	r3, r2
  80002bc:	ddf8      	ble.n	80002b0 <main+0xac>
  80002be:	e7cb      	b.n	8000258 <main+0x54>
- 80002c0:	20000458 	.word	0x20000458
+ 80002c0:	20000464 	.word	0x20000464
  80002c4:	40023830 	.word	0x40023830
  80002c8:	40020800 	.word	0x40020800
  80002cc:	20000004 	.word	0x20000004
@@ -321,10 +319,7 @@ Disassembly of section .text:
  8000336:	42a6      	cmp	r6, r4
  8000338:	d1f9      	bne.n	800032e <__libc_init_array+0x2a>
  800033a:	bd70      	pop	{r4, r5, r6, pc}
- 800033c:	08000624 	.word	0x08000624
- 8000340:	08000624 	.word	0x08000624
- 8000344:	0800062c 	.word	0x0800062c
- 8000348:	08000624 	.word	0x08000624
+	...
 
 0800034c <memset>:
  800034c:	0783      	lsls	r3, r0, #30
@@ -500,8 +495,7 @@ Disassembly of section .text:
  80004ee:	d1f9      	bne.n	80004e4 <__libc_fini_array+0x10>
  80004f0:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
  80004f4:	f000 b866 	b.w	80005c4 <_fini>
- 80004f8:	08000630 	.word	0x08000630
- 80004fc:	0800062c 	.word	0x0800062c
+	...
 
 08000500 <__retarget_lock_init>:
  8000500:	4770      	bx	lr

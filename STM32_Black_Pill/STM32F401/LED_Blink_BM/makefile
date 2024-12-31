@@ -3,7 +3,8 @@ MACH= cortex-m4
 CFLAGS= -save-temps=obj -c -mcpu=$(MACH) -mthumb -std=gnu11 -O0 -lc -lgcc
 OBJS= ./Build/startup.o ./Build/main.o 
 LINKER_SCRIPTS= ./STM32F401CEUX_FLASH.ld
-
+GDB = arm-none-eabi-gdb
+GDB_SCRIPT = load_and_run.gdb
 EXECUTABLES += \
 LED_Blink.elf \
 
@@ -26,7 +27,7 @@ make_Build:
 	$(shell mkdir -p Build)
 	
 clean:   	                        	
-	rm -rf *.elf *.map ./Build 	
+	rm -rf *.elf *.map ./Build *.list	
 	
 default.size.stdout: $(EXECUTABLES) makefile $(OBJS) $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
@@ -45,6 +46,7 @@ LED_Blink.elf: $(OBJS) $(LINKER_SCRIPTS)
 	@echo ' '
 	
 load:
-	openocd -f board/atmel_samd21_xplained_pro.cfg
+	$(GDB) -x $(GDB_SCRIPT) $(EXECUTABLES)
 	
 	
+#openocd -f interface/stlink.cfg -f target/stm32f4x.cfg
