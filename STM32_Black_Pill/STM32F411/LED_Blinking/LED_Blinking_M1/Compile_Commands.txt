@@ -1,0 +1,9 @@
+arm-none-eabi-gcc -save-temps=obj -c -mcpu=cortex-m4 -mthumb -std=gnu11 -O0 -lc -lgcc -o Build/main.o main.c
+
+
+
+arm-none-eabi-gcc -save-temps=obj -c -mcpu=cortex-m4 -mthumb -std=gnu11 -O0 -lc -lgcc -o Build/startup.o startup.c
+
+
+
+arm-none-eabi-gcc -o LED_Blink.elf  ./Build/startup.o ./Build/main.o  -mthumb -Wl,-Map="LED_Blink.map" -mcpu=cortex-m4 -T"./STM32F411CEUX_FLASH.ld"
